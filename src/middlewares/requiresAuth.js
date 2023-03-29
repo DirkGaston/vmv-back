@@ -22,9 +22,6 @@ export default function requiresAuth(tokenType = "accessToken") {
     }
 
     try {
-      console.log(
-        `EL GYOZAS TOKEN TIME PRIMO XXXTRA DELUXE CHIO: ${authHeader}`
-      );
       let jwt;
       switch (tokenType) {
         case "refreshToken":

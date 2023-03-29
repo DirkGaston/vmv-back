@@ -12,7 +12,6 @@ export default class JWTUtils {
   }
 
   static verifyAccessToken(accessToken) {
-    console.log(`EL TOKEN DE LAS gyozasCHIOOOO:  ${accessToken}`);
     return jwt.verify(accessToken, environment.jwtAccessTokenSecret);
   }
 

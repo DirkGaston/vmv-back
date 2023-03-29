@@ -14,6 +14,8 @@ export default (sequelize) => {
     {
       token: {
         type: DataTypes.TEXT,
+        defaultValue: "",
+        allowNull: true,
       },
     },
     {

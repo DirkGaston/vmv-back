@@ -19,9 +19,7 @@ export default class AuthController {
 
   static refreshToken = asyncWrapper(async (req, res, next) => {
     const { email } = req.body.jwt;
-    console.log("hello");
     const data = await AuthService.refreshToken({ email });
-    console.log("hi again");
     res.json({ success: true, data });
   });
 

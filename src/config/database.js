@@ -15,4 +15,12 @@ module.exports = {
     database: process.env.DB_TEST_NAME || "postgres",
     dialect: "postgres",
   },
+  production: {
+    username: process.env.DB_USER || "vmv",
+    password: process.env.DB_PASSWORD || "garroshino666",
+    host: process.env.DB_HOST || "localhost",
+    port: parseInt(process.env.DB_PORT) || 5432,
+    database: process.env.DB_NAME || "vmv",
+    dialect: "postgres",
+  },
 };

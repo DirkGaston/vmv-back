@@ -56,6 +56,10 @@ export default class AuthService {
       where: { email },
       include: RefreshToken,
     });
+    if (user.RefreshToken) {
+      user.RefreshToken.token = null;
+      await user.RefreshToken.save();
+    }
     user.RefreshToken.token = null;
     await user.RefreshToken.save();
   }

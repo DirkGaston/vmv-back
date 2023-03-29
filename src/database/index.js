@@ -5,7 +5,7 @@ import { registerModels } from "../database/models";
 export default class Database {
   constructor(environment, dbConfig) {
     this.environment = environment;
-    this.dbConfig = dbConfig;
+    this.dbConfig = dbConfig.production;
     this.isTestEnvironment = this.environment === "test";
   }
 
@@ -13,8 +13,7 @@ export default class Database {
     const namespace = cls.createNamespace("transactions-namespace");
     Sequelize.useCLS(namespace);
 
-    const { username, password, host, port, database, dialect } =
-      this.dbConfig[this.environment];
+    const { username, password, host, port, database, dialect } = this.dbConfig;
 
     this.connection = new Sequelize({
       username,
