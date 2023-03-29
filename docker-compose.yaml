@@ -1,0 +1,26 @@
+version: "3.3"
+
+services:
+  postgres:
+    image: postgres:latest
+    container_name: vmv-db
+    env_file:
+      - .env
+    environment:
+      POSTGRES_DB: ${DB_NAME:-vmv}
+      POSTGRES_USER: ${DB_USER:-vmv}
+      POSTGRES_PASSWORD: ${DB_PASSWORD:-garroshino666}
+    ports:
+      - ${DB_PORT:-5432}:5432
+    volumes:
+      - C:/Program Files/PostgreSQL/15/data/16602:/var/lib/postgresql/data
+
+  postgres-test:
+    image: postgres:latest
+    container_name: vmv-test-db
+    env_file:
+      - .env
+    environment:
+      POSTGRES_PASSWORD: ${DB_PASSWORD:-garroshino666}
+    ports:
+      - ${DB_TEST_PORT:-5433}:5432
