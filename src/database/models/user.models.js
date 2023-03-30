@@ -100,7 +100,7 @@ export default (sequelize) => {
         allowNull: true,
         validate: {
           is: {
-            args: /^(\+56[- ]?)?(\(\d{1,3}\)[- ]?)?\d{3}[- ]?\d{4}$/,
+            args: /^(\+56)?[- ]?(\(\d{1,3}\)[- ]?)?\d{3}[- ]?\d{4}$/,
             msg: "Formato incorrecto de número de teléfono",
           },
         },
@@ -121,7 +121,7 @@ export default (sequelize) => {
         allowNull: true,
         validate: {
           is: {
-            args: /^(\+56[- ]?)?(\(\d{1,3}\)[- ]?)?\d{3}[- ]?\d{4}$/,
+            args: /^(\+56)?[- ]?(\(\d{1,3}\)[- ]?)?\d{3}[- ]?\d{4}$/,
             msg: "Formato incorrecto de número de teléfono",
           },
         },

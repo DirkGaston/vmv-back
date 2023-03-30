@@ -71,6 +71,7 @@ export default class UserService {
       tiktokLink,
       youtubeLink,
     } = userData;
+
     user.email = email || user.email;
     user.birthday = birthday || user.birthday;
     user.username = username || user.username;
