@@ -6,7 +6,7 @@ const router = Router();
 
 router.get("/", requiresAuth(), UserController.getUsers);
 router.post("/", UserController.createUser);
-router.put("/:id", requiresAuth(), UserController.updateUser);
+router.patch("/:id", requiresAuth(), UserController.updateUser);
 router.delete("/:id", requiresAuth(), UserController.deleteUser);
 
 router.get("/:id", requiresAuth(), UserController.getUser);
