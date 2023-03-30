@@ -66,6 +66,10 @@ export default class UserService {
       phoneNumber,
       emergencyContactName,
       emergenctContactPhone,
+      instagramLink,
+      facebookLink,
+      tiktokLink,
+      youtubeLink,
     } = userData;
     user.email = email || user.email;
     user.birthday = birthday || user.birthday;
@@ -77,6 +81,10 @@ export default class UserService {
       emergencyContactName || user.emergencyContactName;
     user.emergenctContactPhone =
       emergenctContactPhone || user.emergenctContactPhone;
+    user.instagramLink = instagramLink || user.instagramLink;
+    user.facebookLink = facebookLink || user.facebookLink;
+    user.tiktokLink = tiktokLink || user.tiktokLink;
+    user.youtubeLink = youtubeLink || user.youtubeLink;
 
     await user.save();
 

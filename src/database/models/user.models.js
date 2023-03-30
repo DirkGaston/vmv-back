@@ -128,6 +128,7 @@ export default (sequelize) => {
       },
       facebookLink: {
         type: DataTypes.STRING(100),
+        field: "facebook_link",
         allowNull: true,
       },
       instagramLink: {
@@ -135,6 +136,10 @@ export default (sequelize) => {
         allowNull: true,
       },
       tiktokLink: {
+        type: DataTypes.STRING(100),
+        allowNull: true,
+      },
+      youtubeLink: {
         type: DataTypes.STRING(100),
         allowNull: true,
       },
