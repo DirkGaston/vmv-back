@@ -18,7 +18,7 @@ export default class UserService {
     return User.sequelize.transaction(async (t) => {
       const hashedPassword = await hashPassword(password);
 
-    const user = await User.create(
+      const user = await User.create(
         {
           email,
           password: hashedPassword,
@@ -57,11 +57,26 @@ export default class UserService {
       throw new Error(`Usuario con ID ${id} no encontrado`);
     }
 
-    const { email, username, firstName, lastName } = userData;
+    const {
+      email,
+      username,
+      birthday,
+      firstName,
+      lastName,
+      phoneNumber,
+      emergencyContactName,
+      emergencyPhoneNumber,
+    } = userData;
     user.email = email || user.email;
+    user.birthday = birthday || user.birthday;
     user.username = username || user.username;
     user.firstName = firstName || user.firstName;
     user.lastName = lastName || user.lastName;
+    user.phoneNumber = phoneNumber || user.phoneNumber;
+    user.emergencyContactName =
+      emergencyContactName || user.emergencyContactName;
+    user.emergencyPhoneNumber =
+      emergencyPhoneNumber || user.emergencyPhoneNumber;
 
     await user.save();
 
