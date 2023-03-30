@@ -16,8 +16,6 @@ export default class Database {
     const { url, dialect, username, password, host, port, database } =
       this.dbConfig;
 
-    console.log(url, dialect);
-
     this.connection = new Sequelize({
       url,
       dialect,
