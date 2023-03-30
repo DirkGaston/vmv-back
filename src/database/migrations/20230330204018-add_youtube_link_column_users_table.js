@@ -10,6 +10,6 @@ module.exports = {
   },
 
   async down(queryInterface, Sequelize) {
-    await queryInterface.removeColumn('users', 'youtube_link');
-
+    await queryInterface.removeColumn("users", "youtube_link");
+  },
 };
