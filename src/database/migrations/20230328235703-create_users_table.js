@@ -80,7 +80,7 @@ module.exports = {
           len: [3, 50],
         },
       },
-      emergencyPhoneNumber: {
+      emergencyContactPhone: {
         field: "emergency_phone_number",
         allowNull: true,
         type: Sequelize.STRING(20),

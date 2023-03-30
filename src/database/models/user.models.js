@@ -115,8 +115,9 @@ export default (sequelize) => {
           },
         },
       },
-      emergencyPhoneNumber: {
+      emergencyContactPhone: {
         type: DataTypes.STRING(20),
+        field: "emergency_phone_number",
         allowNull: true,
         validate: {
           is: {

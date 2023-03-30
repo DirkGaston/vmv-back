@@ -65,7 +65,7 @@ export default class UserService {
       lastName,
       phoneNumber,
       emergencyContactName,
-      emergencyPhoneNumber,
+      emergenctContactPhone,
     } = userData;
     user.email = email || user.email;
     user.birthday = birthday || user.birthday;
@@ -75,8 +75,8 @@ export default class UserService {
     user.phoneNumber = phoneNumber || user.phoneNumber;
     user.emergencyContactName =
       emergencyContactName || user.emergencyContactName;
-    user.emergencyPhoneNumber =
-      emergencyPhoneNumber || user.emergencyPhoneNumber;
+    user.emergenctContactPhone =
+      emergenctContactPhone || user.emergenctContactPhone;
 
     await user.save();
 
