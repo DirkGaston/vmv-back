@@ -13,7 +13,7 @@ export default class AuthService {
 
     const role = user.role;
     const id = user.id;
-    const payload = { email, role };
+    const payload = { email, role, id };
     const accessToken = JWTUtils.generateAccessToken(payload);
     const savedRefreshToken = await user.getRefreshToken();
     let refreshToken;
