@@ -11,7 +11,8 @@ export default class AuthService {
       throw new Error("Credenciales no válidas");
     }
 
-    const payload = { email };
+    const role = user.role;
+    const payload = { email, role };
     const accessToken = JWTUtils.generateAccessToken(payload);
     const savedRefreshToken = await user.getRefreshToken();
     let refreshToken;
@@ -29,7 +30,7 @@ export default class AuthService {
       refreshToken = savedRefreshToken.token;
     }
 
-    return { accessToken, refreshToken };
+    return { accessToken, refreshToken, email, role };
   }
 
   static async refreshToken({ email }) {
@@ -45,7 +46,7 @@ export default class AuthService {
       throw new Error("Debes loguearte primero");
     }
 
-    const payload = { email };
+    const payload = { email, role };
     const newAccessToken = JWTUtils.generateAccessToken(payload);
 
     return { accessToken: newAccessToken };

@@ -1,6 +1,9 @@
 import JWTUtils from "../utils/jwt-utils";
 
-export default function requiresAuth(tokenType = "accessToken") {
+export default function requiresAuth(
+  tokenType = "accessToken",
+  requiredRole = null
+) {
   return function (req, res, next) {
     const authHeader = req.headers.authorization;
     if (authHeader) {
@@ -32,6 +35,14 @@ export default function requiresAuth(tokenType = "accessToken") {
           break;
       }
       req.body.jwt = jwt;
+
+      if (requiredRole && jwt.role !== requiredRole) {
+        return res.status(403).send({
+          success: false,
+          message: "No tienes permiso para acceder a este recurso",
+        });
+      }
+
       next();
     } catch (err) {
       return res
