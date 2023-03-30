@@ -13,15 +13,19 @@ export default class Database {
     const namespace = cls.createNamespace("transactions-namespace");
     Sequelize.useCLS(namespace);
 
-    const { username, password, host, port, database, dialect } = this.dbConfig;
+    const { url, dialect, username, password, host, port, database } =
+      this.dbConfig;
+
+    console.log(url, dialect);
 
     this.connection = new Sequelize({
+      url,
+      dialect,
       username,
       password,
       host,
       port,
       database,
-      dialect,
       logging: this.isTestEnvironment ? false : console.log,
     });
 
