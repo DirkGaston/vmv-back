@@ -6,7 +6,7 @@ const router = Router();
 
 router.get("/", requiresAuth(), ExerciseController.getExercises);
 router.post("/", requiresAuth(), ExerciseController.createExercise);
-router.put("/:id", requiresAuth(), ExerciseController.updateExercise);
+router.patch("/:id", requiresAuth(), ExerciseController.updateExercise);
 router.delete("/:id", requiresAuth(), ExerciseController.deleteExercise);
 router.get("/:id", requiresAuth(), ExerciseController.getExercise);
 
