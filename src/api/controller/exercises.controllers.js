@@ -27,7 +27,6 @@ export default class ExerciseController {
       image_url,
     });
 
-    io.emit("newExercise", newExercise);
     res.json(newExercise);
   });
 
