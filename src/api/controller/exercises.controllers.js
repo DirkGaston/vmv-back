@@ -32,12 +32,13 @@ export default class ExerciseController {
 
   static updateExercise = asyncWrapper(async (req, res) => {
     const { id } = req.params;
-    const { title, description, video_url } = req.body;
+    const { title, description, video_url, image_url } = req.body;
 
     const exercise = await ExerciseService.updateExercise(id, {
       title,
       description,
       video_url,
+      image_url
     });
 
     res.json(exercise);

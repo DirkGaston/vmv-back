@@ -39,10 +39,13 @@ export default class ExerciseService {
     }
   }
 
-  static async updateExercise(id, { title, description, video_url }) {
+  static async updateExercise(
+    id,
+    { title, description, video_url, image_url }
+  ) {
     try {
       const exercise = await Exercise.findByPk(id);
-      exercise.set({ title, description, video_url });
+      exercise.set({ title, description, video_url, image_url });
       await exercise.save();
       return exercise;
     } catch (error) {
