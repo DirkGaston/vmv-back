@@ -1,5 +1,6 @@
 import ExerciseService from "../../services/exercise.services.js";
 import asyncWrapper from "../../utils/asyncWrapper.js";
+import { io } from "../../loaders/expressLoader";
 
 export default class ExerciseController {
   static getExercises = asyncWrapper(async (req, res) => {
@@ -23,9 +24,10 @@ export default class ExerciseController {
       title,
       description,
       video_url,
-      image_url
+      image_url,
     });
 
+    io.emit("newExercise", newExercise);
     res.json(newExercise);
   });
 
