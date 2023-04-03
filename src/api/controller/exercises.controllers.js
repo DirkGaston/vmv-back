@@ -17,12 +17,13 @@ export default class ExerciseController {
   });
 
   static createExercise = asyncWrapper(async (req, res) => {
-    const { title, description, video_url } = req.body;
+    const { title, description, video_url, image_url } = req.body;
 
     const newExercise = await ExerciseService.createExercise({
       title,
       description,
       video_url,
+      image_url
     });
 
     res.json(newExercise);

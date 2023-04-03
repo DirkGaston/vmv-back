@@ -25,12 +25,13 @@ export default class ExerciseService {
     }
   }
 
-  static async createExercise({ title, description, video_url }) {
+  static async createExercise({ title, description, video_url, image_url }) {
     try {
       const newExercise = await Exercise.create({
         title,
         description,
         video_url,
+        image_url,
       });
       return newExercise;
     } catch (error) {
