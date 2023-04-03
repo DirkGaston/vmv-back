@@ -13,7 +13,9 @@ export default class AuthService {
 
     const role = user.role;
     const id = user.id;
-    const payload = { email, role, id };
+    const username = user.username;
+    const firstName = user.first_name;
+    const payload = { email, role, id, username, firstName };
     const accessToken = JWTUtils.generateAccessToken(payload);
     const savedRefreshToken = await user.getRefreshToken();
     let refreshToken;
@@ -33,7 +35,7 @@ export default class AuthService {
 
     console.log(id);
 
-    return { accessToken, refreshToken, email, role, id };
+    return { accessToken, refreshToken, email, role, id, username, firstName };
   }
 
   static async refreshToken({ email }) {
