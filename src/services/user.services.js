@@ -57,6 +57,9 @@ export default class UserService {
       throw new Error(`Usuario con ID ${id} no encontrado`);
     }
 
+    console.log("Received userData:", userData);
+    console.log("User before update:", user);
+
     const {
       email,
       username,
@@ -65,11 +68,12 @@ export default class UserService {
       lastName,
       phoneNumber,
       emergencyContactName,
-      emergenctContactPhone,
+      emergencyContactPhone,
       instagramLink,
       facebookLink,
       tiktokLink,
       youtubeLink,
+      role,
     } = userData;
 
     user.email = email || user.email;
@@ -80,14 +84,17 @@ export default class UserService {
     user.phoneNumber = phoneNumber || user.phoneNumber;
     user.emergencyContactName =
       emergencyContactName || user.emergencyContactName;
-    user.emergenctContactPhone =
-      emergenctContactPhone || user.emergenctContactPhone;
+    user.emergencyContactPhone =
+      emergencyContactPhone || user.emergencyContactPhone;
     user.instagramLink = instagramLink || user.instagramLink;
     user.facebookLink = facebookLink || user.facebookLink;
     user.tiktokLink = tiktokLink || user.tiktokLink;
     user.youtubeLink = youtubeLink || user.youtubeLink;
+    user.role = role || user.role;
 
     await user.save();
+
+    console.log("User after update:", user);
 
     delete user.dataValues.password;
     return user;
