@@ -28,4 +28,24 @@ export default class AuthController {
     await AuthService.logout({ email });
     res.json({ success: true, message: "Log out con éxito" });
   });
+
+  static forgotPassword = asyncWrapper(async (req, res, next) => {
+    try {
+      const { email } = req.body;
+      const data = await AuthService.forgotPassword({ email });
+      res.json({ success: true, message: data.message });
+    } catch (error) {
+      next(error);
+    }
+  });
+
+  static resetPassword = asyncWrapper(async (req, res, next) => {
+    try {
+      const { token, newPassword } = req.body;
+      const data = await AuthService.resetPassword({ token, newPassword });
+      res.json({ success: true, message: data.message });
+    } catch (error) {
+      next(error);
+    }
+  });
 }
