@@ -29,9 +29,11 @@ export const options = {
       `,
     },
   },
-  apis: ["./docs/*.js"],
+  apis: ["./src/api/docs/*.js"],
 };
 
 const swaggerSpec = swaggerJSDoc(options);
+
+console.log("Swagger Spec:", JSON.stringify(swaggerSpec, null, 2));
 
 export default swaggerSpec;
