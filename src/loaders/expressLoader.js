@@ -5,7 +5,7 @@ import errorsMiddleware from "../middlewares/errors";
 import environment from "../config/env.config";
 import { v1Routes } from "../api/routes";
 import swaggerUi from "swagger-ui-express";
-import swaggerSpec from "../api/docs/swagger.config";
+import swaggerSpec from "../api/swagger.config";
 
 export default class ExpressLoader {
   constructor() {

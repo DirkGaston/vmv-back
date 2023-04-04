@@ -29,7 +29,7 @@ export const options = {
       `,
     },
   },
-  apis: ["./*.swagger.js"],
+  apis: ["./docs/*.js"],
 };
 
 const swaggerSpec = swaggerJSDoc(options);
