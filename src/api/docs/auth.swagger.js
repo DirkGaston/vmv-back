@@ -68,7 +68,7 @@
  *         content:
  *           application/json:
  *             schema:
- *               $ref: '#/components/schemas/AuthData'
+ *               $ref: "#/components/schemas/AuthData"
  *       401:
  *         description: Invalid credentials
  *       500:
@@ -82,7 +82,7 @@
  *     summary: Refresh access token
  *     tags: [Auth]
  *     security:
- *       - bearerAuth: ['refreshToken']
+ *       - bearerAuth: ["refreshToken"]
  *     responses:
  *       200:
  *         description: Access token refreshed successfully
